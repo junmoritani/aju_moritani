@@ -4,9 +4,8 @@ import CartWidget from "../CartWidget";
 function NavBar() {
   return (
     <div className="NavBar">
-      <h1>Logo</h1>
       <nav>
-        <ul>
+        <ul className="links-nav">
           <li>Sobre</li>
           <li>Produtos</li>
         </ul>
