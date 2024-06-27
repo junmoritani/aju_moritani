@@ -1,11 +1,11 @@
 import NavBar from "../NavBar";
 import "./style.css";
 
-function Header() {
+function Header({ contador }) {
   return (
     <div className="Header">
       <h1>Logo</h1>
-      <NavBar />
+      <NavBar contador={contador} />
     </div>
   );
 }

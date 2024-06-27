@@ -1,0 +1,15 @@
+#contador {
+  background-color: red;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#cart-icon {
+  position: relative;
+}
