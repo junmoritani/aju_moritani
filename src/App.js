@@ -11,17 +11,7 @@ function App() {
     <div className="App">
       <Header contador={contador} />
       <ItemListContainer greeting="Minha Listagem" />
-      {/* <ItemCount contador={contador} adicionar={adicionarContador} /> */}
-      <ItemCount
-        initial={1}
-        stock={10}
-        onAdd={(newCount) => setContador(newCount)}
-      />
-      <ItemCount
-        initial={2}
-        stock={20}
-        onAdd={(newCount) => setContador(newCount)}
-      />
+      <ItemCount count={contador} setCount={setContador} stock={10} />
     </div>
   );
 }
