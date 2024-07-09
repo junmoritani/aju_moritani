@@ -1,17 +1,19 @@
 import "./App.css";
-import ItemCount from "./components/ItemCount";
 import Header from "./components/Header";
-import ItemListContainer from "./components/ItemListContainer";
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./router";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 function App() {
   const [contador, setContador] = useState(0);
 
   return (
     <div className="App">
-      <Header contador={contador} />
-      <ItemListContainer greeting="Minha Listagem" />
-      <ItemCount count={contador} setCount={setContador} stock={10} />
+      <BrowserRouter>
+        <Header contador={contador} />
+        <Router />
+      </BrowserRouter>
     </div>
   );
 }

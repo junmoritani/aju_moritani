@@ -1,5 +1,6 @@
 import "./style.css";
 import CartWidget from "../CartWidget";
+import { NavLink } from "react-router-dom";
 
 function NavBar({ contador }) {
   return (
@@ -7,7 +8,12 @@ function NavBar({ contador }) {
       <nav>
         <ul className="links-nav">
           <li>Sobre</li>
-          <li>Produtos</li>
+          <NavLink
+            to="/produtos"
+            className={({ isActive }) => (isActive ? "link_ativo" : "")}
+          >
+            Produtos
+          </NavLink>
         </ul>
       </nav>
       <CartWidget contador={contador} />
