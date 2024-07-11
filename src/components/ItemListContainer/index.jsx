@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList";
+import { allProducts } from "../../mock/products";
 
 function ItemListContainer() {
   const [items, setItems] = useState([]);
@@ -7,36 +8,14 @@ function ItemListContainer() {
   function itemRequest() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve([
-          {
-            id: 0,
-            title: "Camiseta",
-            description: "camiseta da lua",
-            price: 52,
-            pictureUrl: "#",
-          },
-          {
-            id: 1,
-            title: "Shorts",
-            description: "shorts da lua",
-            price: 100,
-            pictureUrl: "#",
-          },
-          {
-            id: 2,
-            title: "Blusa",
-            description: "blusa da lua",
-            price: 36,
-            pictureUrl: "#",
-          },
-        ]);
+        resolve();
       }, 2000);
     });
   }
 
   async function createList() {
     const produtos = await itemRequest();
-    setItems(produtos);
+    setItems(allProducts);
   }
 
   useEffect(() => {

@@ -1,22 +1,29 @@
 import "./style.css";
-import CartWidget from "../CartWidget";
 import { NavLink } from "react-router-dom";
 
-function NavBar({ contador }) {
+function NavBar() {
   return (
     <div className="NavBar">
       <nav>
         <ul className="links-nav">
-          <li>Sobre</li>
-          <NavLink
-            to="/produtos"
-            className={({ isActive }) => (isActive ? "link_ativo" : "")}
-          >
-            Produtos
-          </NavLink>
+          <li>
+            <NavLink
+              to="/produtos"
+              className={({ isActive }) => (isActive ? "link_ativo" : "")}
+            >
+              Produtos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Orders"
+              className={({ isActive }) => (isActive ? "link_ativo" : "")}
+            >
+              Pedidos
+            </NavLink>
+          </li>
         </ul>
       </nav>
-      <CartWidget contador={contador} />
     </div>
   );
 }

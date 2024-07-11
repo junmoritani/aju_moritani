@@ -1,14 +1,19 @@
 import { Routes, Route } from "react-router-dom";
-import Main from "../pages/main";
-import Products from "../pages/products";
-import Product from "../pages/product";
+import Main from "../pages/Main";
+import Products from "../pages/Products";
+import Product from "../pages/Product";
+import Checkout from "../pages/Checkout";
+import Orders from "../pages/Orders";
 
 function Router() {
   return (
     <Routes>
       <Route exact path="/" element={<Main />} />
+      <Route exact path="/:filter?" element={<Main />} />
+      <Route exact path="/Checkout" element={<Checkout />} />
+      <Route exact path="/Orders" element={<Orders />} />
       <Route exact path="/Produtos" element={<Products />} />
-      <Route exact path="/Produto" element={<Product />} />
+      <Route exact path="/Produtos/:id" element={<Product />} />
     </Routes>
   );
 }
