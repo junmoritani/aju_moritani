@@ -20,7 +20,7 @@ function Item({ item }) {
       <h1>{item.title}</h1>
       <h3>{item.description}</h3>
       <h2>{item.price}</h2>
-      <div className="acoes-card">
+      {/* <div className="acoes-card">
         <div className="contador">
           <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>
             -
@@ -35,8 +35,9 @@ function Item({ item }) {
           </button>
         </div>
         <Button onClick={submit}>Adicionar +</Button>
-      </div>
-      {/* <ItemCount count={contador} setCount={setContador} stock={10} /> */}
+      </div> */}
+      <ItemCount count={quantity} setCount={setQuantity} stock={10} />
+      <Button onClick={submit}>Adicionar +</Button>
     </div>
   );
 }
