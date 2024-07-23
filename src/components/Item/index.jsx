@@ -1,14 +1,20 @@
 import "./style.css";
 import ItemCount from "../../components/ItemCount";
 import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 
 function Item({ item }) {
+  const { addToCart } = useCart();
+
   // const [contador, setContador] = useState(0);
   const [quantity, setQuantity] = useState(0);
 
-  function submit() {}
+  function submit() {
+    console.log("adicionado");
+    addToCart({ ...item, quantity });
+  }
 
   return (
     <div className="Item">
@@ -36,7 +42,11 @@ function Item({ item }) {
         </div>
         <Button onClick={submit}>Adicionar +</Button>
       </div> */}
-      <ItemCount count={quantity} setCount={setQuantity} stock={10} />
+      <ItemCount
+        count={quantity}
+        setCount={setQuantity}
+        stock={item.quantityAvailable}
+      />
       <Button onClick={submit}>Adicionar +</Button>
     </div>
   );

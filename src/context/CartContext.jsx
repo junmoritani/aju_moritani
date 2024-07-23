@@ -5,8 +5,8 @@ const CartContext = createContext(undefined);
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function addCart(item) {
-    setCart(valor);
+  function addToCart(item) {
+    // setCart(valor);
     if (isInCart(item)) {
       setCart((prevCart) => {
         const updatedCart = prevCart.map((obj) =>
@@ -25,8 +25,16 @@ export default function CartProvider({ children }) {
     }
   }
 
+  function isInCart(itemId) {
+    return cart.some((item) => item.id === itemId);
+  }
+
+  function cartQtd() {
+    return cart.reduce((quantity, item) => (quantity += item.quantity), 0);
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addCart }}>
+    <CartContext.Provider value={{ cart, addToCart, cartQtd }}>
       {children}
     </CartContext.Provider>
   );

@@ -9,7 +9,7 @@ function Router() {
   return (
     <Routes>
       <Route exact path="/" element={<Main />} />
-      <Route exact path="/:filter?" element={<Main />} />
+      <Route exact path="/:filter?" element={<Products />} />
       <Route exact path="/Checkout" element={<Checkout />} />
       <Route exact path="/Orders" element={<Orders />} />
       <Route exact path="/Produtos" element={<Products />} />

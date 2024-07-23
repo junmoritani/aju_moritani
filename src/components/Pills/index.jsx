@@ -6,7 +6,7 @@ function Pills({ types }) {
   return (
     <div>
       <Link
-        to={`/`}
+        to={`/Produtos`}
         className={filter === undefined ? "selected" : "unselected"}
       >
         Todos
