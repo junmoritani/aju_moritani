@@ -13,7 +13,7 @@ function CartWidget() {
           <ShoppingCart size="50" color="white" />
         </Link>
       </div>
-      <span id="contador">{cartQtd()}</span>
+      {cartQtd() > 0 ? <span className="contador">{cartQtd()}</span> : ""}
     </div>
   );
 }

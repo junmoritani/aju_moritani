@@ -3,14 +3,18 @@ import Header from "./components/Header";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./router";
 import CartProvider from "./context/CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
+  const notify = () => toast("Here is your toast.");
+
   return (
     <div className="App">
       <CartProvider>
         <BrowserRouter>
           <Header />
           <Router />
+          <Toaster />
         </BrowserRouter>
       </CartProvider>
     </div>
