@@ -3,6 +3,8 @@ import { useCart } from "../../context/CartContext";
 import CartItem from "../../components/CartItem";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { addDoc, collection } from "firebase/firestore";
+import db from "../../services/firebase";
 
 const coupons = ["fruta_15", "jun_15"];
 
@@ -12,6 +14,11 @@ function Checkout() {
   const [discount, setDiscount] = useState(0);
   const [coupon, setCoupon] = useState("");
   const [payment, setPayment] = useState("");
+  const [client, setClient] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
   const [address, setAddress] = useState({
     cep: "",
     street: "",
@@ -32,8 +39,9 @@ function Checkout() {
     }
   };
 
-  const submit = () => {
-    console.log({
+  const submit = async () => {
+    await addDoc(collection(db, "pedidos"), {
+      client,
       products: cart,
       address,
       payment,
@@ -46,6 +54,11 @@ function Checkout() {
     setDiscount(0);
     setCoupon("");
     setPayment("");
+    setClient({
+      name: "",
+      phone: "",
+      email: "",
+    });
     setAddress({
       cep: "",
       street: "",
@@ -86,6 +99,28 @@ function Checkout() {
               Informações de Entrega
             </h2>
             <div className="w-full flex gap-2">
+              <Input
+                value={client.name}
+                onChange={(value) => setClient({ ...client, name: value })}
+                label="Nome"
+                type="text"
+                placeholder="Digite seu Nome"
+              />
+              <Input
+                value={client.phone}
+                onChange={(value) => setClient({ ...client, phone: value })}
+                label="Phone"
+                type="text"
+                placeholder="Digite o número do seu telefone"
+              />
+              <Input
+                value={client.email}
+                onChange={(value) => setClient({ ...client, email: value })}
+                label="Email"
+                type="text"
+                placeholder="Digite seu email"
+              />
+
               <Input
                 value={address.cep}
                 onChange={(value) => setAddress({ ...address, cep: value })}

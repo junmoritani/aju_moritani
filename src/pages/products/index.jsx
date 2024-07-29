@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import ItemListContainer from "../../components/ItemListContainer";
+// import ItemListContainer from "../../components/ItemListContainer";
 import Pills from "../../components/Pills";
 import Search from "../../components/Search";
-import { allProducts } from "../../mock/products";
+// import { allProducts } from "../../mock/products";
 import Item from "../../components/Item";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../services/firebase";
 
 function Products() {
   //States
+  const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
 
   //React Router Dom (filtros e search)
@@ -49,7 +52,13 @@ function Products() {
 
   //Montagem
   useEffect(() => {
-    setProducts(allProducts);
+    const itemsCollection = collection(db, "produtos");
+    getDocs(itemsCollection).then((snapshot) => {
+      //usar id gerado pelo firebase
+      // setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      setProducts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+      setAllProducts(snapshot.docs.map((doc) => ({ ...doc.data() })));
+    });
   }, []);
 
   //Watcher (search params)

@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./router";
 import CartProvider from "./context/CartContext";
 import toast, { Toaster } from "react-hot-toast";
-import "./services/firebase";
 
 function App() {
   const notify = () => toast("Here is your toast.");

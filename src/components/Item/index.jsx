@@ -25,7 +25,12 @@ function Item({ item }) {
       </div>
       <h1>{item.title}</h1>
       <h3>{item.description}</h3>
-      <h2>{item.price}</h2>
+      <h2>
+        {item.price.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}
+      </h2>
       {/* <div className="acoes-card">
         <div className="contador">
           <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>

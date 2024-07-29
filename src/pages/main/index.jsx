@@ -2,6 +2,7 @@
 // import { allProducts } from "../../mock/products";
 import "./style.css";
 import ItemListContainer from "../../components/ItemListContainer";
+import "../../services/firebase";
 
 function Main() {
   // const [products, setProducts] = useState([]);
