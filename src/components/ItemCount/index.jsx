@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Plus, Minus } from "feather-icons-react";
 
 function ItemCount({ count, setCount, stock }) {
   useEffect(() => {
@@ -19,13 +20,22 @@ function ItemCount({ count, setCount, stock }) {
   };
 
   return (
-    <div className="ItemCount">
-      <button onClick={decrement} disabled={count <= 0}>
-        -
+    <div className="flex flex-row bg-white rounded-full w-full justify-around items-center ">
+      <button
+        className="font-bold text-3xl text-red-500"
+        onClick={decrement}
+        disabled={count <= 0}
+      >
+        <Minus />
       </button>
-      <p>{count}</p>
-      <button onClick={increment} disabled={count >= stock}>
-        +
+      <p className="font-bold text-xl text-slate-900">{count}</p>
+
+      <button
+        className=" font-bold  text-3xl  text-red-500"
+        onClick={increment}
+        disabled={count >= stock}
+      >
+        <Plus />
       </button>
     </div>
   );

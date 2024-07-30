@@ -17,7 +17,7 @@ function ItemListContainer() {
   }, []);
 
   return (
-    <div className="ItemListContainer">
+    <div className="">
       <ItemList items={items} />
     </div>
   );

@@ -9,7 +9,7 @@ function CartItem({ item }) {
     <div className="bg-white p-4 rounded-lg flex">
       <img
         className="h-36 w-60 object-cover rounded"
-        src={item.imageUrl}
+        src={item.pictureUrl}
         alt=""
       ></img>
 

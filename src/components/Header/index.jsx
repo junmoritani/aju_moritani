@@ -1,22 +1,24 @@
 import NavBar from "../NavBar";
 import "./style.css";
 import CartWidget from "../CartWidget";
-import Button from "../Button";
+// import Button from "../Button";
 import { Link } from "react-router-dom";
+import Logo from "../../imgs/Logo/Logo.png";
 
 function Header() {
   return (
-    <div className="Header">
+    <div className="px-8 py-3 flex flex-row justify-between items-center border-b-2">
       <Link to="/">
-        <h1>Logo</h1>
+        <img className="w-52" src={Logo} alt="Logo" />
       </Link>
-
-      <NavBar />
-      <div>
-        <Button>
+      <div className="flex flex-row justify-center items-center gap-12">
+        <NavBar />
+        <div>
+          {/* <Button>
           <span>Login/Registre-se</span>
-        </Button>
-        <CartWidget />
+        </Button> */}
+          <CartWidget />
+        </div>
       </div>
     </div>
   );

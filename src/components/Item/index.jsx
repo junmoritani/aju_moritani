@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { ShoppingCart, Plus } from "feather-icons-react";
+import toast from "react-hot-toast";
 
 function Item({ item }) {
   const { addToCart } = useCart();
@@ -11,48 +13,59 @@ function Item({ item }) {
   // const [contador, setContador] = useState(0);
   const [quantity, setQuantity] = useState(0);
 
+  const [qtdActive, setQtdActive] = useState(false);
+
   function submit() {
     console.log("adicionado");
-    addToCart({ ...item, quantity });
+    if (quantity > 0) {
+      addToCart({ ...item, quantity });
+      setQtdActive(false);
+      setQuantity(0);
+      toast.success("Produto adicionado ao carrinho");
+    }
   }
 
   return (
-    <div className="Item">
-      <div className="img-container">
+    <div className="bg-orange-100 w-44 rounded-xl overflow-hidden">
+      <div className=" bg-black w-fi h-44">
         <Link to={`/Produtos/${item.id}`}>
           <img className="item-img" src={item.pictureUrl} alt="" />
         </Link>
-      </div>
-      <h1>{item.title}</h1>
-      <h3>{item.description}</h3>
-      <h2>
-        {item.price.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </h2>
-      {/* <div className="acoes-card">
-        <div className="contador">
-          <button onClick={() => quantity > 0 && setQuantity(quantity - 1)}>
-            -
-          </button>
-          <p>{quantity}</p>
-          <button
-            onClick={() =>
-              quantity < item.quantityAvailable && setQuantity(quantity + 1)
-            }
-          >
-            +
-          </button>
+        <div className="flex flex-row gap-3  relative bottom-14 mx-3  ">
+          {qtdActive ? (
+            <>
+              <ItemCount
+                count={quantity}
+                setCount={setQuantity}
+                stock={item.quantityAvailable}
+              />
+              <Button className="bg-red-500 p-2 rounded-full" onClick={submit}>
+                <ShoppingCart size="30" color="white" />
+              </Button>
+            </>
+          ) : (
+            <Button
+              className="bg-white p-2 rounded-full "
+              onClick={() => {
+                setQtdActive(true);
+                setQuantity(1);
+              }}
+            >
+              <Plus size="30" color="red" />
+            </Button>
+          )}
         </div>
-        <Button onClick={submit}>Adicionar +</Button>
-      </div> */}
-      <ItemCount
-        count={quantity}
-        setCount={setQuantity}
-        stock={item.quantityAvailable}
-      />
-      <Button onClick={submit}>Adicionar +</Button>
+      </div>
+      <div className="flex flex-col items-start gap-3 p-3">
+        <h1 className="font-bold text-xl">
+          {item.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </h1>
+        <h1>{item.title}</h1>
+        <h3>{item.description}</h3>
+      </div>
     </div>
   );
 }

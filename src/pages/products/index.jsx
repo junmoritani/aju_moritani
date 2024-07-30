@@ -84,7 +84,7 @@ function Products() {
       <Search />
       <Pills types={pills} />
       {/* <ItemListContainer /> */}
-      <div className="cards-container">
+      <div className="flex flex-wrap gap-10">
         {products.map((item, index) => (
           <Item key={index} item={item} />
         ))}

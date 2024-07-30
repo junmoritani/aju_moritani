@@ -5,13 +5,13 @@ function NavBar() {
   return (
     <div className="NavBar">
       <nav>
-        <ul className="links-nav">
+        <ul className="links-nav text-xl font-semibold text-gray-900 ">
           <li>
             <NavLink
               to="/produtos"
               className={({ isActive }) => (isActive ? "link_ativo" : "")}
             >
-              Produtos
+              produtos
             </NavLink>
           </li>
           <li>
@@ -19,7 +19,7 @@ function NavBar() {
               to="/Orders"
               className={({ isActive }) => (isActive ? "link_ativo" : "")}
             >
-              Pedidos
+              pedidos
             </NavLink>
           </li>
         </ul>

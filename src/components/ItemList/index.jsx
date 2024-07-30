@@ -2,12 +2,10 @@ import Item from "../Item";
 
 function ItemList({ items }) {
   return (
-    <div className="ItemList">
-      <ul>
-        {items.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
-      </ul>
+    <div className="flex flex-wrap gap-10">
+      {items.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
     </div>
   );
 }
