@@ -26,8 +26,8 @@ function Item({ item }) {
   }
 
   return (
-    <div className="bg-orange-100 w-44 rounded-xl overflow-hidden">
-      <div className=" bg-black w-fi h-44">
+    <div className="bg-white w-44 shadow-md rounded-xl overflow-hidden">
+      <div className="  h-44">
         <Link to={`/Produtos/${item.id}`}>
           <img className="item-img" src={item.pictureUrl} alt="" />
         </Link>
@@ -44,15 +44,17 @@ function Item({ item }) {
               </Button>
             </>
           ) : (
-            <Button
-              className="bg-white p-2 rounded-full "
-              onClick={() => {
-                setQtdActive(true);
-                setQuantity(1);
-              }}
-            >
-              <Plus size="30" color="red" />
-            </Button>
+            <>
+              <Button
+                className="bg-white p-2 rounded-full "
+                onClick={() => {
+                  setQtdActive(true);
+                  setQuantity(1);
+                }}
+              >
+                <Plus size="30" color="red" />
+              </Button>
+            </>
           )}
         </div>
       </div>
@@ -63,8 +65,8 @@ function Item({ item }) {
             currency: "BRL",
           })}
         </h1>
-        <h1>{item.title}</h1>
-        <h3>{item.description}</h3>
+        <h1 className="font-normal">{item.title}</h1>
+        <h3 className="font-light">{item.description}</h3>
       </div>
     </div>
   );
