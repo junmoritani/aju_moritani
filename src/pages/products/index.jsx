@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-// import ItemListContainer from "../../components/ItemListContainer";
+import ItemListContainer from "../../components/ItemListContainer";
 import Pills from "../../components/Pills";
 import Search from "../../components/Search";
 // import { allProducts } from "../../mock/products";
@@ -83,12 +83,12 @@ function Products() {
     <div className="Products">
       <Search />
       <Pills types={pills} />
-      {/* <ItemListContainer /> */}
-      <div className="flex flex-wrap gap-10">
+      <ItemListContainer />
+      {/* <div className="flex flex-wrap gap-10">
         {products.map((item, index) => (
           <Item key={index} item={item} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

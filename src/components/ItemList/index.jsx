@@ -1,4 +1,5 @@
 import Item from "../Item";
+import { useCart } from "../../context/CartContext";
 
 function ItemList({ items }) {
   return (

@@ -44,11 +44,13 @@ export default function CartProvider({ children }) {
 
   function removeItemQtd(id) {
     setCart((prevCart) => {
-      const updatedCart = prevCart.map((obj) =>
-        obj.id === id && obj.quantity > 0
-          ? { ...obj, quantity: obj.quantity - 1 }
-          : obj
-      );
+      const updatedCart = prevCart
+        .map((obj) =>
+          obj.id === id && obj.quantity > 0
+            ? { ...obj, quantity: obj.quantity - 1 }
+            : obj
+        )
+        .filter((obj) => obj.quantity > 0);
       return updatedCart;
     });
   }
@@ -81,6 +83,7 @@ export default function CartProvider({ children }) {
         removeFromCart,
         cartTotal,
         cleanCart,
+        isInCart,
       }}
     >
       {children}
