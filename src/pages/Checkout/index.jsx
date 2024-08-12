@@ -5,6 +5,7 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../../services/firebase";
+import { Check } from "feather-icons-react";
 
 const coupons = ["fruta_15", "jun_15"];
 
@@ -73,16 +74,117 @@ function Checkout() {
 
   return (
     <div className="px-10 py-1 2xl:py-2">
-      <h1 className="text-2xl font-bold text-slate-900 2xl:mb-2">
+      <h1 className="text-2xl font-normal p-7 text-slate-900 2xl:mb-2">
         Finalizar pedido
       </h1>
       <div className="flex">
-        <div className="flex flex-col w-3/5">
-          <h2 className="text-2xl font-bold text-slate-900">
+        <div className="flex flex-col gap-7 w-3/5">
+          <div className="flex flex-col ">
+            <div>
+              <div className="flex flex-col gap-5">
+                <h2 className="text-xl text-left font-semibold text-slate-900 2xl:mb-2">
+                  Contato
+                </h2>
+                <div className="w-full flex flex-col gap-5">
+                  <Input
+                    value={client.name}
+                    onChange={(value) => setClient({ ...client, name: value })}
+                    label="Nome"
+                    type="text"
+                    placeholder="Digite seu Nome"
+                  />
+                  <Input
+                    value={client.phone}
+                    onChange={(value) => setClient({ ...client, phone: value })}
+                    label="Phone"
+                    type="text"
+                    placeholder="Digite o número do seu telefone"
+                  />
+                  <Input
+                    value={client.email}
+                    onChange={(value) => setClient({ ...client, email: value })}
+                    label="Email"
+                    type="text"
+                    placeholder="Digite seu email"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-5 mt-7">
+                <h2 className="text-xl text-left font-semibold text-slate-900 2xl:mb-2">
+                  Endereço de Entrega
+                </h2>
+                <div>
+                  <div className="w-full flex gap-2">
+                    <Input
+                      value={address.cep}
+                      onChange={(value) =>
+                        setAddress({ ...address, cep: value })
+                      }
+                      label="CEP"
+                      type="text"
+                      placeholder="Digite seu CEP"
+                    />
+
+                    <Input
+                      value={address.street}
+                      onChange={(value) =>
+                        setAddress({ ...address, street: value })
+                      }
+                      label="Logradouro"
+                      type="text"
+                      placeholder="Digite o logradouro"
+                    />
+                  </div>
+                </div>
+                <div className="w-full flex gap-2">
+                  <Input
+                    value={address.number}
+                    onChange={(value) =>
+                      setAddress({ ...address, number: value })
+                    }
+                    label="Número"
+                    type="text"
+                    placeholder="Digite o número"
+                  />
+                  <Input
+                    value={address.neighborhood}
+                    onChange={(value) =>
+                      setAddress({ ...address, neighborhood: value })
+                    }
+                    label="Bairro"
+                    type="text"
+                    placeholder="Digite o bairro"
+                  />
+                </div>
+                <div className="w-full flex gap-2">
+                  <Input
+                    value={address.city}
+                    onChange={(value) =>
+                      setAddress({ ...address, city: value })
+                    }
+                    label="Cidade"
+                    type="text"
+                    placeholder="Digite a cidade"
+                  />
+
+                  <Input
+                    value={address.state}
+                    onChange={(value) =>
+                      setAddress({ ...address, state: value })
+                    }
+                    label="Estado"
+                    type="text"
+                    placeholder="Digite o estado"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 className="text-2xl text-left font-semibold  text-slate-900">
             Itens no carrinho
           </h2>
 
-          <div className="flex flex-col gap-3 h-[300px] 2xl:h-[550px] 2xl:mb-4 overflow-y-scroll ">
+          <div className="flex flex-col gap-3  ">
             {cart.length === 0 && (
               <p className="w-full font-semibold text-slate-700 text-center mt-16 text-lg">
                 O carrinho está vazio
@@ -93,93 +195,13 @@ function Checkout() {
               <CartItem item={item} />
             ))}
           </div>
-
-          <div className="flex flex-col mt-1">
-            <h2 className="text-xl font-bold text-slate-900 2xl:mb-2">
-              Informações de Entrega
-            </h2>
-            <div className="w-full flex gap-2">
-              <Input
-                value={client.name}
-                onChange={(value) => setClient({ ...client, name: value })}
-                label="Nome"
-                type="text"
-                placeholder="Digite seu Nome"
-              />
-              <Input
-                value={client.phone}
-                onChange={(value) => setClient({ ...client, phone: value })}
-                label="Phone"
-                type="text"
-                placeholder="Digite o número do seu telefone"
-              />
-              <Input
-                value={client.email}
-                onChange={(value) => setClient({ ...client, email: value })}
-                label="Email"
-                type="text"
-                placeholder="Digite seu email"
-              />
-
-              <Input
-                value={address.cep}
-                onChange={(value) => setAddress({ ...address, cep: value })}
-                label="CEP"
-                type="text"
-                placeholder="Digite seu CEP"
-              />
-
-              <Input
-                value={address.street}
-                onChange={(value) => setAddress({ ...address, street: value })}
-                label="Logradouro"
-                type="text"
-                placeholder="Digite o logradouro"
-              />
-            </div>
-            <div className="w-full flex gap-2">
-              <Input
-                value={address.number}
-                onChange={(value) => setAddress({ ...address, number: value })}
-                label="Número"
-                type="text"
-                placeholder="Digite o número"
-              />
-
-              <Input
-                value={address.city}
-                onChange={(value) => setAddress({ ...address, city: value })}
-                label="Cidade"
-                type="text"
-                placeholder="Digite a cidade"
-              />
-
-              <Input
-                value={address.neighborhood}
-                onChange={(value) =>
-                  setAddress({ ...address, neighborhood: value })
-                }
-                label="Bairro"
-                type="text"
-                placeholder="Digite o bairro"
-              />
-
-              <Input
-                value={address.state}
-                onChange={(value) => setAddress({ ...address, state: value })}
-                label="Estado"
-                type="text"
-                placeholder="Digite o estado"
-              />
-            </div>
-          </div>
         </div>
 
-        <div className="flex flex-col w-2/5 ml-12">
-          <h2 className="text-xl font-bold text-slate-900">Pagamento</h2>
+        <div className="flex flex-col gap-7 w-2/5 ml-12">
+          <h2 className="text-xl font-semibold text-slate-900">Pagamento</h2>
 
-          <div className="rounded bg-white p-5">
-            <div className="flex justify-between">
+          <div className="rounded  bg-white p-5">
+            <div className="flex  justify-between">
               <p className="font-semibold text-slate-700">Subtotal</p>
               <span className="font-bold text-slate-700">
                 {cartTotal()?.toLocaleString("pt-BR", {
@@ -204,7 +226,7 @@ function Checkout() {
                   onChange={(e) => setCoupon(e.target.value)}
                 />
                 <div className="bg-blue-500 rounded p-1" onClick={applyCoupon}>
-                  {/* <Check className="text-white" /> */}
+                  <Check className="text-white" />
                 </div>
               </div>
             </div>
@@ -282,7 +304,7 @@ function Checkout() {
 
             <Button
               onClick={submit}
-              className="w-full bg-amber-400 rounded px-3 py-2 text-slate-800 font-semibold text-lg cursor-pointer mt-6 hover:bg-amber-500"
+              className="w-full bg-greenUmbu rounded px-3 py-2 text-white font-semibold text-lg cursor-pointer mt-6 hover:bg-amber-500"
             >
               Finalizar
             </Button>

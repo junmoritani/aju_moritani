@@ -8,7 +8,7 @@ function NavBar() {
         <ul className="links-nav text-xl font-semibold text-gray-900 ">
           <li>
             <NavLink
-              to="/produtos"
+              to="/Produtos"
               className={({ isActive }) => (isActive ? "link_ativo" : "")}
             >
               produtos

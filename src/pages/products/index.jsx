@@ -4,9 +4,9 @@ import ItemListContainer from "../../components/ItemListContainer";
 import Pills from "../../components/Pills";
 import Search from "../../components/Search";
 // import { allProducts } from "../../mock/products";
-import Item from "../../components/Item";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../../services/firebase";
+import Item from "../../components/Item";
 
 function Products() {
   //States
@@ -80,15 +80,15 @@ function Products() {
   }, [filter]);
 
   return (
-    <div className="Products">
-      <Search />
+    <div className=" flex flex-col items-center justify-center">
+      {/* <Search /> */}
       <Pills types={pills} />
-      <ItemListContainer />
-      {/* <div className="flex flex-wrap gap-10">
+      {/* <ItemListContainer /> */}
+      <div className="flex flex-wrap w-5/6 justify-center gap-6 p-4 ">
         {products.map((item, index) => (
           <Item key={index} item={item} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

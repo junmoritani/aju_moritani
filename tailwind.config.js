@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         greenUmbu: "#51794B",
+        bejeFundo: "#FFF4DE",
       },
     },
   },
