@@ -8,5 +8,7 @@ E-commerce de produtos de Hortifrut desenvolvido para o curso de React da Coderh
 
 
 
-https://github.com/user-attachments/assets/ee6413bb-ca75-4ff8-89ea-5a199efefe1a
+
+
+https://github.com/user-attachments/assets/a1e54e86-318a-4a0c-82dd-b0031962250f
 
