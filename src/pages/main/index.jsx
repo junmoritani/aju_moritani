@@ -9,7 +9,6 @@ function Main() {
     <div className="my-24 flex flex-col gap-24 justify-around items-center">
       <PresentationCard />
       <ServiceDescription />
-      <ItemListContainer />
     </div>
   );
 }

@@ -7,21 +7,25 @@ import "./index.css";
 
 function ServiceDescription() {
   return (
-    <div className="flex w-5/6 gap-12 flex-wrap justify-center">
+    <div className=" flex w-full gap-12 flex-wrap justify-center">
       <div className="CardSteps">
         <h1>Você escolhe seus produtos</h1>
-        <img src={SelecaoImg} alt="" />
+        <br />
+        <img className="" src={SelecaoImg} alt="" />
       </div>
       <div className="CardSteps">
         <h1>Nós enviamos suas escolhas ao produtor mais próximo de você</h1>
+        <br />
         <img src={FazendeiroImg} alt="" />
       </div>
       <div className="CardSteps">
         <h1>Você aprova o pedido pela foto da compra</h1>
+        <br />
         <img src={AprovacaoImg} alt="" />
       </div>
       <div className="CardSteps">
         <h1>Nós enviamos a compra para sua casa</h1>
+        <br />
         <img src={EntregaImg} alt="" />
       </div>
     </div>
