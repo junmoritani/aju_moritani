@@ -5,11 +5,18 @@ function NavBar() {
   return (
     <div className="NavBar">
       <nav>
-        <ul className="links-nav text-xl font-semibold text-gray-900 ">
+        <ul className=" bg flex justify-center md:min-h-fit  min-h-[10vh] flex-row  items-center  links-nav text-xl font-semibold text-gray-900 ">
           <li>
             <NavLink
               to="/Produtos"
-              className={({ isActive }) => (isActive ? "link_ativo" : "")}
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "link_ativo text-greenUmbu font-bold"
+                    : "text-gray-800"
+                } 
+                hover:text-gray-500 px-4 py-2 rounded transition duration-300`
+              }
             >
               produtos
             </NavLink>
@@ -17,7 +24,14 @@ function NavBar() {
           <li>
             <NavLink
               to="/Orders"
-              className={({ isActive }) => (isActive ? "link_ativo" : "")}
+              className={({ isActive }) =>
+                `${
+                  isActive
+                    ? "link_ativo text-greenUmbu font-bold"
+                    : "text-gray-800"
+                } 
+                hover:text-gray-500 px-4 py-2 rounded transition duration-300`
+              }
             >
               pedidos
             </NavLink>

@@ -77,8 +77,8 @@ function Checkout() {
       <h1 className="text-2xl font-normal p-7 text-slate-900 2xl:mb-2">
         Finalizar pedido
       </h1>
-      <div className="flex">
-        <div className="flex flex-col gap-7 w-3/5">
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col gap-7 w-full md:w-3/5">
           <div className="flex flex-col ">
             <div>
               <div className="flex flex-col gap-5">
@@ -197,7 +197,7 @@ function Checkout() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-7 w-2/5 ml-12">
+        <div className="flex flex-col gap-7 w-full md:w-2/5 md:ml-12">
           <h2 className="text-xl font-semibold text-slate-900">Pagamento</h2>
 
           <div className="rounded  bg-white p-5">

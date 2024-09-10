@@ -13,7 +13,7 @@ function SearchBar({ placeholder }) {
   }
 
   return (
-    <div className="realtive w-1/3 h-8">
+    <div className="realtive w-full h-8">
       <div className="absolute flex  h-8 items-center " onClick={handleClick}>
         <Search className="w-7  text-greenUmbu mx-2" />
       </div>

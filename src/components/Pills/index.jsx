@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 function Pills({ types }) {
   const { filter } = useParams();
   return (
-    <div className="flex flex-row w-3/4 justify-between  items-center mb-12 mt-5">
+    <div className="flex flex-row w-3/4 gap-5 md:justify-between justify-center flex-wrap  items-center mb-12 mt-5">
       <Link
         to={`/Produtos`}
         className={
